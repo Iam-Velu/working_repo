@@ -1,0 +1,241 @@
+System Administrator MCQ
+1.
+You have deployed an HTTP server and you want to use IPTABLES to restrict access to it to only the 192.168.250.0/24 network. The action should be to reject all unwanted traffic without notifying the source of the denied traffic of the rejection. Which command will accomplish that?
+Your Answer:
+
+
+iptables -I OUTPUT -p tcp -m udp --state NEW -f 192.168.250.0/24 --dport 80 -j REJECT
+
+iptables -A INPUT -m tcp -p tcp --state NEW -s 192.168.250.0/24 --dport 80 -j QUEUE
+
+iptables -I INPUT -m tcp -p udp --state NEW -p 192.168.250.0/24 --dport 80 -j REJECT
+
+iptables -A INPUT -m tcp -p tcp --state NEW -s 192.168.250.0/24 --dport 80 -j DROP
+2.
+Using command substitution, how would you display the value of the present working directory?
+Your Answer:
+
+
+echo $(pwd)
+
+echo pwd
+
+$pwd
+
+pwd | echo
+3.
+I have created a LVM partition of 10G using ext4. I would like to reduce the size of 5G and change the file system to 'xfs'. Which would be the correct steps?
+Your Answer:
+
+
+(1). Reduce the partition size using 'lvreduce' command. (2). Reduce the ext4 filesystem using 'resize2fs' command. (3). Reboot
+
+It is not possible to change filesystems on the fly.
+
+(1). Reduce the filesystem using 'resize2fs' command. (2). Reduce the partition size using 'lvreduce' command. (3). Rewrite the filesystem using 'mkfs.xfs'
+
+(1). Change the filesystem to xfs. (2).Reduce the size of LVM to 5GB. (3). Reboot
+4.
+You need to create a user and deny him access to the Bash Shell. What would be your strategy?
+Your Answer:
+
+
+Create the user using the 'useradd' command without setting a password
+
+Create a user and delete his '-/.bashrc' file
+
+Create the user using the 'useradd -s /sbin/nologin' command
+
+Deny the user access to the file /etc/shells
+5.
+I want to change the type of my logical partition from the standard Linux Partition type to LVM Partition Type. How will I do that?
+Your Answer:
+
+
+Create a new LVM partition and transfer all data to it
+
+Modify the partition type and set the partition type to '8e'
+
+Delete the partition and reset it to LVM '8a'
+
+Modify the partition type and set it to the extended logical partition type
+6.
+When looking at the /etc/passwd file, you notice that all the password fields contain 'x'. What does this mean?
+Your Answer:
+
+
+The password is encrypted
+
+The system uses shadow passwords
+
+Passwords are blank
+
+All paswords are expired
+7.
+You have a requirement to set a collaborative directory called 'Reports' for the Marketing Team. You thus create a group called 'marketing' and add users to it. You must then set group ownership to the 'Reports' directory in such a way that, any file or subdirectory automatically inherit the 'marketing' group ownership. What command will satisfy that requirement?
+Your Answer:
+
+
+'chmod -Rv 2777 Reports'
+
+'chmod -Rv g+s Reports'
+
+'chmod -Rv .marketing Reports'
+
+'chmod -Rv u+s Reports'
+8.
+Which standard library function can be used for calling clean-up tasks of a program that should be executed before terminating the program?
+Your Answer:
+
+
+at abort function
+
+atexit function
+
+atterminate function
+
+at_return function
+9.
+You have been assigned the job of determining the device usage in the system. Which log file would you examine?
+Your Answer:
+
+
+/var/log/tmp
+
+/var/log/lastlog
+
+/var/log/messages
+
+/var/log/utmp
+10.
+Which file contains the default environment variables when using the bash shell?
+Your Answer:
+
+
+~/.profile
+
+~/.bash
+
+/etc/profile.d
+
+~/bash
+11.
+I want to rotate logs in my system and e-mail it to my account. How do I do it?
+Your Answer:
+
+
+logrotate -m Logs
+
+rotatelog -m Logs
+
+logrotate
+
+rotatelog
+12.
+Vivek wants to changes his login ID from vivek to viv. Which one of the following commands would you execute?
+Your Answer:
+
+
+usermod -I viv vivek
+
+usermod -l vivek viv
+
+usermod -m viv vivek
+
+usermod -m vivek viv
+13.
+You attempt to log out but receive an error message that you cannot. When you issue the jobs command, you see a process that is running in the background. How can you fix this so that you can logout?
+Your Answer:
+
+
+kill PID-of-the-process
+
+kill job-number-of-process
+
+kill
+
+kill PID-of-the-last-command
+14.
+Jack leaves the company and you want to delete his account. The system administrator executed userdel jack. However, his home directory was still intact. What arguments should be issued?
+Your Answer:
+
+
+userdel -m jack
+
+userdel -l jack
+
+userdel -d jack
+
+userdel -r jack
+15.
+What is the use of cron?
+Your Answer:
+
+
+To schedule tasks based on time and date
+
+To schedule time in conjunction with NTP server
+
+To enable logs based on time stamps
+
+Cron is a mechanism to synchronize the network time with the local time
+16.
+What is the command swapon used for in linux?
+Your Answer:
+
+
+Create a swap area in RAM
+
+Enables swapping of pages
+
+Specifies devices on swapping should take place
+
+Creates a swap partition
+17.
+Which of the following commands will list last three commands you run excluding itself with history id of these commands:
+Your Answer:
+
+
+history -n 3
+
+history -c 3
+
+fc -l -3
+
+fc -ln -3
+18.
+You have changed GID of the sales group by editing the /etc/group file. All of the members can change to the group without any problem except for Jack. He cannot even login to the system. What is the problem?
+Your Answer:
+
+
+Jack forgot the password to the group
+
+Jack needs to be added to the group again
+
+Jack has the original GID specified in /etc/passwd file
+
+Jack's account needs to be deleted and created again
+19.
+How would you allow SELinux to accept to serve Apache Web Server and vsFTP from the same folder?
+Your Answer:
+
+
+It is not possible
+
+Edit /etc/selinux and set the mode to 'enforcing'
+
+Change the boolean values of concerned service of Selinux using 'setsebool -P ' command and setting the value to 1
+
+Open ports 80 and 21 to accept traffic through SELinux
+20.
+You were asked to create an NFS share for your organization. As Root, you create a NFS share on your Desktop ('/root/Desktop/nfs_share') for others to mount it on their own machines. You export the share successfully, but users can't mount it on their directories. What could have possibly gone wrong?
+Your Answer:
+
+
+The users should configure nfsd service properly
+
+The rpcbind service is off
+
+Not allowed to create a share in the Root home directory
+
+Selinux should be disabled
